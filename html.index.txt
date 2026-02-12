@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>G-Unit</title>
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+
+    <style>
+        /* Reset și font modern */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Montserrat', sans-serif;
+        }
+
+        body {
+            min-height: 100vh;
+            background: url('https://images.unsplash.com/photo-1503376780353-7e6692767b70?auto=format&fit=crop&w=1470&q=80') no-repeat center center/cover;
+            color: white;
+            overflow-x: hidden;
+        }
+
+        /* Overlay semi-transparent pentru text */
+        .overlay {
+            background-color: rgba(0,0,0,0.7);
+            min-height: 100vh;
+            padding: 50px 20px;
+        }
+
+        /* Header */
+        header {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        header h1 {
+            font-size: 3em;
+            color: #ff0000;
+            text-shadow: 0 0 10px #ff0000;
+        }
+
+        /* Meniu categorii */
+        .categories {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+        }
+
+        .category {
+            background-color: rgba(255,0,0,0.8);
+            padding: 30px 50px;
+            border-radius: 15px;
+            font-size: 1.5em;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .category:hover {
+            transform: scale(1.05);
+        }
+
+        .category.active {
+            box-shadow: 0 0 20px #ff0000;
+        }
+
+        /* Neon click effect */
+        .category:active {
+            background-color: #ff0044;
+            box-shadow: 0 0 20px #ff00ff, 0 0 40px #ff00ff;
+        }
+
+        /* Pagini categorii */
+        .category-page {
+            display: none;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .category-page.active {
+            display: flex;
+        }
+
+        .back-btn {
+            background-color: #ff0000;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            font-weight: bold;
+            align-self: flex-start;
+            transition: all 0.3s ease;
+        }
+
+        .back-btn:hover {
+            background-color: #ff4444;
+            box-shadow: 0 0 10px #ff00ff;
+        }
+
+        /* Servicii catalog */
+        .services {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+        }
+
+        .service {
+            background-color: rgba(255,0,0,0.7);
+            padding: 20px;
+            border-radius: 15px;
+            transition: all 0.3s ease;
+        }
+
+        .service:hover {
+            transform: scale(1.05);
+            box-shadow: 0 0 20px #ff00ff;
+        }
+
+        /* Contact */
+        .contact {
+            margin-top: 50px;
+            text-align: center;
+            font-size: 1.2em;
+        }
+
+        .contact span {
+            display: block;
+            margin: 10px 0;
+            color: #ff0000;
+            text-shadow: 0 0 5px #ff0000;
+        }
+
+        /* Imagini responsive */
+        img {
+            max-width: 100%;
+            border-radius: 10px;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="overlay">
+        <header>
+            <h1>G-Unit Tunning</h1>
+        </header>
+
+        <!-- Meniu Categorii -->
+        <div class="categories">
+            <div class="category" data-target="catalog">Catalog Servicii</div>
+            <div class="category" data-target="galerie">Galerie</div>
+            <div class="category" data-target="contact">Contact</div>
+        </div>
+
+        <!-- Catalog Servicii -->
+        <div class="category-page" id="catalog">
+            <button class="back-btn">← Înapoi</button>
+            <h2>Servicii Oferite</h2>
+            <div class="services">
+                <div class="service">
+                    <h3>Reparații</h3>
+                    <p>Diagnostic complet, reparații motor, suspensie, sistem de frânare și electrică auto.</p>
+                </div>
+                <div class="service">
+                    <h3>Tuning Exterior</h3>
+                    <p>Spoilere, bare față/spate, difuzoare, grile, personalizări caroserie.</p>
+                </div>
+                <div class="service">
+                    <h3>Stage/Optimizări</h3>
+                    <p>Remapare ECU, îmbunătățirea performanțelor motorului și optimizarea consumului.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Galerie Imagini -->
+        <div class="category-page" id="galerie">
+            <button class="back-btn">← Înapoi</button>
+            <h2>Galerie Mașini</h2>
+            <div class="services">
+                <img src="https://images.unsplash.com/photo-1563729784476-206f8d6f3c68?auto=format&fit=crop&w=800&q=80" alt="Mașină 1">
+                <img src="https://images.unsplash.com/photo-1603731022315-77a0e644f991?auto=format&fit=crop&w=800&q=80" alt="Mașină 2">
+                <img src="https://images.unsplash.com/photo-1613836510182-1d4e4f5e1fa1?auto=format&fit=crop&w=800&q=80" alt="Mașină 3">
+            </div>
+        </div>
+
+        <!-- Contact -->
+        <div class="category-page" id="contact">
+            <button class="back-btn">← Înapoi</button>
+            <h2>Contact</h2>
+            <div class="contact">
+                <span>Telefon: 151-9687</spam>
+                <span>Email: v3ndetta69@gmail.com</spam>
+                <span>Adresă: Service-ul nr.11 Oraș Los-Santos</spam>
+            </div>
+        </div>
+    </div>
+
+    <!-- Script pentru navigare categorii -->
+    <script>
+        const categories = document.querySelectorAll('.category');
+        const pages = document.querySelectorAll('.category-page');
+        const backBtns = document.querySelectorAll('.back-btn');
+
+        categories.forEach(cat => {
+            cat.addEventListener('click', () => {
+                const target = cat.dataset.target;
+                pages.forEach(page => page.classList.remove('active'));
+                document.getElementById(target).classList.add('active');
+            });
+        });
+
+        backBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                pages.forEach(page => page.classList.remove('active'));
+            });
+        });
+    </script>
+</body>
+</html>
